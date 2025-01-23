@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <head>
+      <meta charset="UTF-8">
+      <script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.html).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/index.html")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{delete Object.assign(arguments[0],{[t(e)]:arguments[0][e]})[e]})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+      <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+      <style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+      <!-- This site is optimized with the Yoast SEO Premium plugin v17.7 (Yoast SEO v20.8) - https://yoast.com/wordpress/plugins/seo/ -->
+      <title>Especialista Digital PRO - Victor Demetrius</title>
+      <meta name="description" content="Aprenda o passo a passo que me faz receber em dólar, prestando serviços online de forma simples e rápida direto do conforto da minha casa" />
+      <link rel="canonical" href="index.html" />
+      <meta property="og:locale" content="pt_BR" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Especialista Digital PRO" />
+      <meta property="og:description" content="Aprenda o passo a passo que me faz receber em dólar, prestando serviços online de forma simples e rápida direto do conforto da minha casa" />
+      <meta property="og:url" content="https://victordemetrius.com.br/" />
+      <meta property="og:site_name" content="Victor Demetrius" />
+      <meta property="article:modified_time" content="2024-12-06T17:09:20+00:00" />
+      <meta property="og:image" content="https://victordemetrius.com.br/wp-content/uploads/2023/12/5-1.png" />
+      <meta property="og:image:width" content="1080" />
+      <meta property="og:image:height" content="1080" />
+      <meta property="og:image:type" content="image/png" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:label1" content="Est. tempo de leitura" />
+      <meta name="twitter:data1" content="19 minutos" />
+      <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://victordemetrius.com.br/","url":"https://victordemetrius.com.br/","name":"Especialista Digital PRO - Victor Demetrius","isPartOf":{"@id":"https://victordemetrius.com.br/#website"},"about":{"@id":"https://victordemetrius.com.br/#organization"},"primaryImageOfPage":{"@id":"https://victordemetrius.com.br/#primaryimage"},"image":{"@id":"https://victordemetrius.com.br/#primaryimage"},"thumbnailUrl":"https://victordemetrius.com.br/wp-content/uploads/2023/12/5-1.png","datePublished":"2023-04-04T00:15:27+00:00","dateModified":"2024-12-06T17:09:20+00:00","description":"Aprenda o passo a passo que me faz receber em dólar, prestando serviços online de forma simples e rápida direto do conforto da minha casa","breadcrumb":{"@id":"https://victordemetrius.com.br/#breadcrumb"},"inLanguage":"pt-BR","potentialAction":[{"@type":"ReadAction","target":["https://victordemetrius.com.br/"]}]},{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://victordemetrius.com.br/#primaryimage","url":"https://victordemetrius.com.br/wp-content/uploads/2023/12/5-1.png","contentUrl":"https://victordemetrius.com.br/wp-content/uploads/2023/12/5-1.png","width":1080,"height":1080},{"@type":"BreadcrumbList","@id":"https://victordemetrius.com.br/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início"}]},{"@type":"WebSite","@id":"https://victordemetrius.com.br/#website","url":"https://victordemetrius.com.br/","name":"Victor Demetrius","description":"Aprenda o passo a passo que me faz receber em dólar, prestando serviços online de forma simples e rápida direto do conforto da minha casa​","publisher":{"@id":"https://victordemetrius.com.br/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://victordemetrius.com.br/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"pt-BR"},{"@type":"Organization","@id":"https://victordemetrius.com.br/#organization","name":"Victor Demetrius","url":"https://victordemetrius.com.br/","logo":{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://victordemetrius.com.br/#/schema/logo/image/","url":"https://victordemetrius.com.br/wp-content/uploads/2023/04/cropped-cropped-p-e-d-3-1-192x192-1.png","contentUrl":"https://victordemetrius.com.br/wp-content/uploads/2023/04/cropped-cropped-p-e-d-3-1-192x192-1.png","width":512,"height":512,"caption":"Victor Demetrius"},"image":{"@id":"https://victordemetrius.com.br/#/schema/logo/image/"},"sameAs":["https://instagram.com/eusouvictordemetrius/"]}]}</script>
+      <!-- / Yoast SEO Premium plugin. -->
+      <script type="rocketlazyloadscript" data-rocket-type='application/javascript'>console.log('PixelYourSite Free version 9.3.5');</script>
+      <link rel='dns-prefetch' href='http://maps.googleapis.com/' />
+      <link rel='dns-prefetch' href='http://maps.gstatic.com/' />
+      <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+      <link rel='dns-prefetch' href='http://fonts.gstatic.com/' />
+      <link rel='dns-prefetch' href='http://use.fontawesome.com/' />
+      <link rel='dns-prefetch' href='http://ajax.googleapis.com/' />
+      <link rel='dns-prefetch' href='http://apis.google.com/' />
+      <link rel='dns-prefetch' href='http://google-analytics.com/' />
+      <link rel='dns-prefetch' href='http://www.google-analytics.com/' />
+      <link rel='dns-prefetch' href='http://ssl.google-analytics.com/' />
+      <link rel='dns-prefetch' href='http://www.googletagmanager.com/' />
+      <link rel='dns-prefetch' href='http://www.googletagservices.com/' />
+      <link rel='dns-prefetch' href='http://googleads.g.doubleclick.net/' />
+      <link rel='dns-prefetch' href='http://adservice.google.com/' />
+      <link rel='dns-prefetch' href='http://pagead2.googlesyndication.com/' />
+      <link rel='dns-prefetch' href='http://tpc.googlesyndication.com/' />
+      <link rel='dns-prefetch' href='http://youtube.com/' />
+      <link rel='dns-prefetch' href='http://i.ytimg.com/' />
+      <link rel='dns-prefetch' href='http://player.vimeo.com/' />
+      <link rel='dns-prefetch' href='http://api.pinterest.com/' />
+      <link rel='dns-prefetch' href='http://assets.pinterest.com/' />
+      <link rel='dns-prefetch' href='http://connect.facebook.net/' />
+      <link rel='dns-prefetch' href='http://platform.twitter.com/' />
+      <link rel='dns-prefetch' href='http://syndication.twitter.com/' />
+      <link rel='dns-prefetch' href='http://platform.instagram.com/' />
+      <link rel='dns-prefetch' href='http://referrer.disqus.com/' />
+      <link rel='dns-prefetch' href='http://c.disquscdn.com/' />
+      <link rel='dns-prefetch' href='http://cdnjs.cloudflare.com/' />
+      <link rel='dns-prefetch' href='http://cdn.ampproject.org/' />
+      <link rel='dns-prefetch' href='http://pixel.wp.com/' />
+      <link rel='dns-prefetch' href='http://disqus.com/' />
+      <link rel='dns-prefetch' href='http://s.gravatar.com/' />
+      <link rel='dns-prefetch' href='http://0.gravatar.com/' />
+      <link rel='dns-prefetch' href='http://2.gravatar.com/' />
+      <link rel='dns-prefetch' href='http://1.gravatar.com/' />
+      <link rel='dns-prefetch' href='http://sitename.disqus.com/' />
+      <link rel='dns-prefetch' href='http://s7.addthis.com/' />
+      <link rel='dns-prefetch' href='http://platform.linkedin.com/' />
+      <link rel='dns-prefetch' href='http://w.sharethis.com/' />
+      <link rel='dns-prefetch' href='http://s0.wp.com/' />
+      <link rel='dns-prefetch' href='http://s1.wp.com/' />
+      <link rel='dns-prefetch' href='http://s2.wp.com/' />
+      <link rel='dns-prefetch' href='http://stats.wp.com/' />
+      <link rel='dns-prefetch' href='http://ajax.microsoft.com/' />
+      <link rel='dns-prefetch' href='http://ajax.aspnetcdn.com/' />
+      <link rel='dns-prefetch' href='http://s3.amazonaws.com/' />
+      <link rel='dns-prefetch' href='http://code.jquery.com/' />
+      <link rel='dns-prefetch' href='http://stackpath.bootstrapcdn.com/' />
+      <link rel='dns-prefetch' href='http://github.githubassets.com/' />
+      <link rel='dns-prefetch' href='http://ad.doubleclick.net/' />
+      <link rel='dns-prefetch' href='http://stats.g.doubleclick.net/' />
+      <link rel='dns-prefetch' href='http://cm.g.doubleclick.net/' />
+      <link rel='dns-prefetch' href='http://stats.buysellads.com/' />
+      <link rel='dns-prefetch' href='http://s3.buysellads.com/' />
+      <link rel="alternate" type="application/rss+xml" title="Feed para Victor Demetrius &raquo;" href="feed/index.html" />
+      <link rel="alternate" type="application/rss+xml" title="Feed de comentários para Victor Demetrius &raquo;" href="comments/feed/index.html" />
+      <script type="rocketlazyloadscript">
+         window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/victordemetrius.com.br\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
+         /*! This file is auto-generated */
+         !function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+      </script>
+      <style id='wp-emoji-styles-inline-css'>
+         img.wp-smiley, img.emoji {
+         display: inline !important;
+         border: none !important;
+         box-shadow: none !important;
+         height: 1em !important;
+         width: 1em !important;
+         margin: 0 0.07em !important;
+         vertical-align: -0.1em !important;
+         background: none !important;
+         padding: 0 !important;
+         }
+      </style>
+      <style id='classic-theme-styles-inline-css'>
+         /*! This file is auto-generated */
+         .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+      </style>
+      <style id='global-styles-inline-css'>
+         :root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+         :where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+         :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+         :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+      </style>
+      <link rel='stylesheet' id='hello-elementor-css' href='wp-content/themes/hello-elementor/style.min41fe.css?ver=3.0.1' media='all' />
+      <link rel='stylesheet' id='hello-elementor-theme-style-css' href='wp-content/themes/hello-elementor/theme.min41fe.css?ver=3.0.1' media='all' />
+      <link rel='stylesheet' id='hello-elementor-header-footer-css' href='wp-content/themes/hello-elementor/header-footer.min41fe.css?ver=3.0.1' media='all' />
+      <link rel='stylesheet' id='elementor-frontend-css' href='wp-content/plugins/elementor/assets/css/frontend-lite.minf3b2.css?ver=3.18.3' media='all' />
+      <link rel='stylesheet' id='elementor-post-8-css' href='wp-content/uploads/elementor/css/post-8cbe2.css?ver=1713468326' media='all' />
+      <link data-minify="1" rel='stylesheet' id='elementor-icons-css' href='wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.minf43d.css?ver=1737445601' media='all' />
+      <link data-minify="1" rel='stylesheet' id='swiper-css' href='wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.minf43d.css?ver=1737445601' media='all' />
+      <link rel='stylesheet' id='elementor-pro-css' href='wp-content/plugins/pro-elements/assets/css/frontend-lite.min110d.css?ver=3.18.1' media='all' />
+      <link rel='stylesheet' id='elementor-global-css' href='wp-content/uploads/elementor/css/globalcbe2.css?ver=1713468326' media='all' />
+      <link rel='stylesheet' id='elementor-post-10-css' href='wp-content/uploads/elementor/css/post-104c37.css?ver=1733504963' media='all' />
+      <style id='rocket-lazyload-inline-css'>
+         .rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+      </style>
+      <link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Montserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CBarlow%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap&amp;ver=6.7.1' media='all' />
+      <link rel='stylesheet' id='elementor-icons-shared-0-css' href='wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min52d5.css?ver=5.15.3' media='all' />
+      <link data-minify="1" rel='stylesheet' id='elementor-icons-fa-solid-css' href='wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.minf43d.css?ver=1737445601' media='all' />
+      <link data-minify="1" rel='stylesheet' id='elementor-icons-fa-brands-css' href='wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.minf43d.css?ver=1737445601' media='all' />
+      <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+      <script src="wp-includes/js/jquery/jquery.minf43b.js?ver=3.7.1" id="jquery-core-js" defer></script>
+      <script src="wp-includes/js/jquery/jquery-migrate.min5589.js?ver=3.4.1" id="jquery-migrate-js" defer></script>
+      <script src="wp-content/plugins/pixelyoursite/dist/scripts/jquery.bind-first-0.2.3.min9704.js?ver=6.7.1" id="jquery-bind-first-js" defer></script>
+      <script src="wp-content/plugins/pixelyoursite/dist/scripts/js.cookie-2.1.3.min4c71.js?ver=2.1.3" id="js-cookie-pys-js" defer></script>
+
+      <script data-minify="1" src="wp-content/cache/min/1/wp-content/plugins/pixelyoursite/dist/scripts/publicf43d.js?ver=1737445601" id="pys-js" defer></script>
+      <link rel="https://api.w.org/" href="wp-json/index.html" />
+      <link rel="alternate" title="JSON" type="application/json" href="wp-json/wp/v2/pages/10.json" />
+      <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+      <meta name="generator" content="WordPress 6.7.1" />
+      <link rel='shortlink' href='index.html' />
+      <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="wp-json/oembed/1.0/embed6d7a.json?url=https%3A%2F%2Fvictordemetrius.com.br%2F" />
+      <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="wp-json/oembed/1.0/embed247d?url=https%3A%2F%2Fvictordemetrius.com.br%2F&amp;format=xml" />
+      <!-- Google Tag Manager -->
+      <script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         '../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-MVCJQM8C');
+      </script>
+      <!-- End Google Tag Manager -->
+      <meta name="generator" content="Elementor 3.18.3; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-swap">
+      <link rel="preload" href="../scripts.converteai.net/8ce4f6a4-d91f-471e-aed9-31ef86e837b5/players/64534693ebb6dc000a1c5a9f/player.js" as="script">
+      <link rel="preload" href="../cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
+      <link rel="preload" href="../images.converteai.net/8ce4f6a4-d91f-471e-aed9-31ef86e837b5/players/64534693ebb6dc000a1c5a9f/thumbnail.jpg" as="image">
+      <link rel="preload" href="https://cdn.converteai.net/8ce4f6a4-d91f-471e-aed9-31ef86e837b5/64534664ebb6dc000a1c5a9e/playlist.m3u8" as="fetch">
+      <link rel="dns-prefetch" href="https://cdn.converteai.net/">
+      <link rel="dns-prefetch" href="https://scripts.converteai.net/">
+      <link rel="dns-prefetch" href="https://images.converteai.net/">
+      <link rel="dns-prefetch" href="https://api.vturb.com.br/">
+      <meta property="og:title" content="Victor Demetrius" />
+      <meta property="og:description" content="Aprenda o passo a passo que me faz receber em dólar, prestando serviços online de forma simples e rápida direto do conforto da minha casa"/>
+      <meta property="og:image" content="https://victordemetrius.com.br/wp-content/uploads/2023/06/avatar.webp" />
+      <meta property="og:image:alt" content="Aprenda o passo a passo que me faz receber em dólar, prestando serviços online de forma simples e rápida direto do conforto da minha casa" />
+      <!-- Google tag (gtag.js) -->
+      <script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-7TR678782R"></script>
+      <script type="rocketlazyloadscript">
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-7TR678782R');
+      </script>
+      <!-- Google Tag Manager -->
+      <script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         '../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-5X4HS6DH');
+      </script>
+      <!-- End Google Tag Manager -->
+      <link rel="icon" href="wp-content/uploads/2023/12/5-1-150x150.png" sizes="32x32" />
+      <link rel="icon" href="wp-content/uploads/2023/12/5-1-300x300.png" sizes="192x192" />
+      <link rel="apple-touch-icon" href="wp-content/uploads/2023/12/5-1-300x300.png" />
+      <meta name="msapplication-TileImage" content="https://victordemetrius.com.br/wp-content/uploads/2023/12/5-1-300x300.png" />
+      <noscript>
+         <style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style>
+      </noscript>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+   </head>
+   <body class="home page-template page-template-elementor_canvas page page-id-10 wp-custom-logo elementor-default elementor-template-canvas elementor-kit-8 elementor-page elementor-page-10">
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVCJQM8C"
+         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) --><!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5X4HS6DH"
+         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->		
+      <div data-elementor-type="wp-page" data-elementor-id="10" class="elementor elementor-10" data-elementor-post-type="page">
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-3cc300c3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3cc300c3" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-36403fce" data-id="36403fce" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-1c95608c elementor-widget elementor-widget-heading" data-id="1c95608c" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <style>/*! elementor - v3.18.0 - 20-12-2023 */
+                              .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
+                           </style>
+                           <h2 class="elementor-heading-title elementor-size-default">NOVAS VAGAS COM INÍCIO IMEDIATO</h2>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-72f7eee7" data-id="72f7eee7" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-30b58312 elementor-align-left elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="30b58312" data-element_type="widget" data-widget_type="button.default">
+                        <div class="elementor-widget-container">
+                           <div class="elementor-button-wrapper">
+                              <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-bob" href="#offer">
+                              <span class="elementor-button-content-wrapper">
+                              <span class="elementor-button-text">COMEÇAR JÁ</span>
+                              </span>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-41ce1d0b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="41ce1d0b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-34a3fb5f" data-id="34a3fb5f" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-33a35226 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="33a35226" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-4aab99e" data-id="4aab99e" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-1d3006f7 elementor-widget elementor-widget-heading" data-id="1d3006f7" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default"><span style="color: #FFFFFF;">Aprenda o método que me faz</span> RECEBER EM DÓLAR<span style="color: #FFFFFF;"> e que me permitiu </span>PEDIR DEMISSÃO DA CLT EM MENOS DE 3 MESES, </u> <span style="color: #FFFFFF;">avaliando conteúdos online <u>direto do conforto da minha casa</span></u></h2>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-26d42e96 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="26d42e96" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-4f11bbd" data-id="4f11bbd" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-1dcee681 elementor-widget elementor-widget-heading" data-id="1dcee681" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default"><b>ATENÇÃO:</b> Este conteúdo não tem a ver com vendas. Não é necessário ter nenhum tipo de experiência ou escolaridade.<br><span style="color: #29F6FF; font-weight: bold;">Dê o play no vídeo para entender melhor.</span></h2>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-5ac61caa elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5ac61caa" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-2078aa9c" data-id="2078aa9c" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-705df9d elementor-widget elementor-widget-html" data-id="705df9d" data-element_type="widget" data-widget_type="html.default">
+                                    <div class="elementor-widget-container">
+                                       <div style="padding:56.25% 0 0 0;position:relative;">
+                                          <iframe loading="lazy" frameborder="0" allowfullscreen src="about:blank" id="ifr_658e38dd42dbd50009093a8e" style="position:absolute;top:0;left:0;width:100%;height:100%;" referrerpolicy="origin" data-rocket-lazyload="fitvidscompatible" data-lazy-src="https://scripts.converteai.net/820bcba0-d4fe-4b0b-aea8-303cce7f6797/players/658e38dd42dbd50009093a8e/embed.html"></iframe>
+                                          <noscript><iframe frameborder="0" allowfullscreen src="https://scripts.converteai.net/820bcba0-d4fe-4b0b-aea8-303cce7f6797/players/658e38dd42dbd50009093a8e/embed.html" id="ifr_658e38dd42dbd50009093a8e" style="position:absolute;top:0;left:0;width:100%;height:100%;" referrerpolicy="origin"></iframe></noscript>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-29094d51 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="29094d51" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-77d06b5e" data-id="77d06b5e" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-5aa90cd6 elementor-widget elementor-widget-heading" data-id="5aa90cd6" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default"><b>Você tem ao menos 1 hora disponível por dia?</b></h2>
+                                    </div>
+                                 </div>
+                                 <div class="elementor-element elementor-element-6b23e395 elementor-widget elementor-widget-heading" data-id="6b23e395" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default">Se a resposta for sim, você já pode ter seus primeiros resultados!</h2>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <div id="offer" class="elementor-element elementor-element-77f30ca elementor-align-center elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="77f30ca" data-element_type="widget" data-widget_type="button.default">
+                        <div class="elementor-widget-container">
+                           <div class="elementor-button-wrapper">
+                              <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-bob" href="https://pay.confiavelpagamento.com/checkout/9a117027-e2fa-44e6-83c9-0c7f738d8d07">
+                              <span class="elementor-button-content-wrapper">
+                              <span class="elementor-button-text">COMEÇAR JÁ!</span>
+                              </span>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-1e167dbb elementor-widget elementor-widget-heading" data-id="1e167dbb" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default"><b>Você pode <u>começar ainda hoje!</b></u></h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-4c64bc77 elementor-widget elementor-widget-heading" data-id="4c64bc77" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Você só precisa de um celular ou computador com acesso à internet!</h2>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-97b1ca4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="97b1ca4" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1319f0fa" data-id="1319f0fa" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-649f6ef4 elementor-widget elementor-widget-heading" data-id="649f6ef4" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default"><b>AVALIAÇÃO DOS ALUNOS</b> ⭐️⭐️⭐️⭐️⭐️
+                           </h2>
+                        </div>
+                     </div>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-16f36f13 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="16f36f13" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-4aaf7c75" data-id="4aaf7c75" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-53cf5499 elementor-arrows-position-inside elementor-pagination-position-outside elementor-widget elementor-widget-image-carousel" data-id="53cf5499" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;3&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;slides_to_show_mobile&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;both&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:20,&quot;sizes&quot;:[]},&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="image-carousel.default">
+                                    <div class="elementor-widget-container">
+                                       <style>/*! elementor - v3.18.0 - 20-12-2023 */
+                                          .elementor-widget-image-carousel .swiper,.elementor-widget-image-carousel .swiper-container{position:static}.elementor-widget-image-carousel .swiper-container .swiper-slide figure,.elementor-widget-image-carousel .swiper .swiper-slide figure{line-height:inherit}.elementor-widget-image-carousel .swiper-slide{text-align:center}.elementor-image-carousel-wrapper:not(.swiper-container-initialized):not(.swiper-initialized) .swiper-slide{max-width:calc(100% / var(--e-image-carousel-slides-to-show, 3))}
+                                       </style>
+                                       <div class="elementor-image-carousel-wrapper swiper" dir="ltr">
+                                          <div class="elementor-image-carousel swiper-wrapper" aria-live="off">
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1363" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201363'%3E%3C/svg%3E" alt="depoimento-05" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/depoimento-05-768x1363.webp" />
+                                                   <noscript><img width="768" height="1363" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/depoimento-05-768x1363.webp" alt="depoimento-05" /></noscript>
+                                                </figure>
+                                             </div>
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1344" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201344'%3E%3C/svg%3E" alt="IMG_4860" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/IMG_4860-768x1344.jpg" />
+                                                   <noscript><img width="768" height="1344" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/IMG_4860-768x1344.jpg" alt="IMG_4860" /></noscript>
+                                                </figure>
+                                             </div>
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1363" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201363'%3E%3C/svg%3E" alt="depoimento-07" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/depoimento-07-768x1363.webp" />
+                                                   <noscript><img width="768" height="1363" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/depoimento-07-768x1363.webp" alt="depoimento-07" /></noscript>
+                                                </figure>
+                                             </div>
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1364" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201364'%3E%3C/svg%3E" alt="IMG_4866" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/IMG_4866-768x1364.jpg" />
+                                                   <noscript><img width="768" height="1364" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/IMG_4866-768x1364.jpg" alt="IMG_4866" /></noscript>
+                                                </figure>
+                                             </div>
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="5 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1373" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201373'%3E%3C/svg%3E" alt="IMG_4865" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/IMG_4865-768x1373.jpg" />
+                                                   <noscript><img width="768" height="1373" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/IMG_4865-768x1373.jpg" alt="IMG_4865" /></noscript>
+                                                </figure>
+                                             </div>
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="6 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1366" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201366'%3E%3C/svg%3E" alt="IMG_4864" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/IMG_4864-768x1366.jpg" />
+                                                   <noscript><img width="768" height="1366" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/IMG_4864-768x1366.jpg" alt="IMG_4864" /></noscript>
+                                                </figure>
+                                             </div>
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="7 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1368" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201368'%3E%3C/svg%3E" alt="IMG_4863" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/IMG_4863-768x1368.jpg" />
+                                                   <noscript><img width="768" height="1368" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/IMG_4863-768x1368.jpg" alt="IMG_4863" /></noscript>
+                                                </figure>
+                                             </div>
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="8 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1285" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201285'%3E%3C/svg%3E" alt="IMG_4861" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/IMG_4861-768x1285.jpg" />
+                                                   <noscript><img width="768" height="1285" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/IMG_4861-768x1285.jpg" alt="IMG_4861" /></noscript>
+                                                </figure>
+                                             </div>
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="9 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1363" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201363'%3E%3C/svg%3E" alt="IMG_4859" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/IMG_4859-768x1363.jpg" />
+                                                   <noscript><img width="768" height="1363" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/IMG_4859-768x1363.jpg" alt="IMG_4859" /></noscript>
+                                                </figure>
+                                             </div>
+                                             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="10 de 10">
+                                                <figure class="swiper-slide-inner">
+                                                   <img width="768" height="1370" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%201370'%3E%3C/svg%3E" alt="IMG_4858" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2024/10/IMG_4858-768x1370.jpg" />
+                                                   <noscript><img width="768" height="1370" decoding="async" class="swiper-slide-image" src="wp-content/uploads/2024/10/IMG_4858-768x1370.jpg" alt="IMG_4858" /></noscript>
+                                                </figure>
+                                             </div>
+                                          </div>
+                                          <div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0">
+                                             <i aria-hidden="true" class="eicon-chevron-left"></i>					
+                                          </div>
+                                          <div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0">
+                                             <i aria-hidden="true" class="eicon-chevron-right"></i>					
+                                          </div>
+                                          <div class="swiper-pagination"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-65ed0ae8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="65ed0ae8" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-50ea8978" data-id="50ea8978" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-4a281a5c elementor-widget elementor-widget-heading" data-id="4a281a5c" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Qual o salário médio?</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-74998c9c elementor-widget elementor-widget-heading" data-id="74998c9c" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">O salário médio de um Especialista Digital iniciante, é de <b>US$ 6 dólares</b> <b>por hora</b> trabalhada.</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-21771171 elementor-widget elementor-widget-heading" data-id="21771171" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Em média, os alunos deste método recebem de <b>R$120</b> <b>a R$300 por dia</b>, trabalhando em torno de 4 horas diárias.</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-4628f52b elementor-widget elementor-widget-heading" data-id="4628f52b" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Alunos mais experientes chegam a ultrapassar <b>R$ 12.823,00 por mês, após alguns meses de trabalho.</b></h2>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4c1a4aee" data-id="4c1a4aee" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-25452a0d elementor-widget elementor-widget-image" data-id="25452a0d" data-element_type="widget" data-widget_type="image.default">
+                        <div class="elementor-widget-container">
+                           <style>/*! elementor - v3.18.0 - 20-12-2023 */
+                              .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}
+                           </style>
+                           <img fetchpriority="high" decoding="async" width="666" height="500" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20666%20500'%3E%3C/svg%3E" class="attachment-large size-large wp-image-19" alt="" data-lazy-srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/PIX.webp 666w, https://victordemetrius.com.br/wp-content/uploads/2023/04/PIX-300x225.webp 300w" data-lazy-sizes="(max-width: 666px) 100vw, 666px" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2023/04/PIX.webp" />
+                           <noscript><img fetchpriority="high" decoding="async" width="666" height="500" src="wp-content/uploads/2023/04/PIX.webp" class="attachment-large size-large wp-image-19" alt="" srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/PIX.webp 666w, https://victordemetrius.com.br/wp-content/uploads/2023/04/PIX-300x225.webp 300w" sizes="(max-width: 666px) 100vw, 666px" /></noscript>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-1ee20968 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1ee20968" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5e4c13ed" data-id="5e4c13ed" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-3786125f elementor-widget elementor-widget-heading" data-id="3786125f" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Para quem é esse método?</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-4b3b2e0 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="4b3b2e0" data-element_type="widget" data-widget_type="icon-list.default">
+                        <div class="elementor-widget-container">
+                           <link rel="stylesheet" href="wp-content/plugins/elementor/assets/css/widget-icon-list.min.css">
+                           <ul class="elementor-icon-list-items">
+                              <li class="elementor-icon-list-item">
+                                 <span class="elementor-icon-list-icon">
+                                 <i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+                                 <span class="elementor-icon-list-text">Para você que busca uma <b>nova fonte de renda</b>, seja uma renda principal ou uma renda extra</span>
+                              </li>
+                              <li class="elementor-icon-list-item">
+                                 <span class="elementor-icon-list-icon">
+                                 <i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+                                 <span class="elementor-icon-list-text">Para você que está <b>cansado de trabalhar para os outros e deseja mudar de vida</b></span>
+                              </li>
+                              <li class="elementor-icon-list-item">
+                                 <span class="elementor-icon-list-icon">
+                                 <i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+                                 <span class="elementor-icon-list-text">Para você que deseja<b> aprender a trabalhar pela internet de uma vez por todas</b></span>
+                              </li>
+                              <li class="elementor-icon-list-item">
+                                 <span class="elementor-icon-list-icon">
+                                 <i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+                                 <span class="elementor-icon-list-text">Para você que <b>já tentou outros métodos na internet e nunca obteve sucesso</b></span>
+                              </li>
+                              <li class="elementor-icon-list-item">
+                                 <span class="elementor-icon-list-icon">
+                                 <i aria-hidden="true" class="fas fa-check-square"></i>						</span>
+                                 <span class="elementor-icon-list-text">Para você que deseja trabalhar <b>sem ter chefe e deseja ser remunerado em dólar</b></span>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-3e8a28c5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3e8a28c5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5a8e00b9" data-id="5a8e00b9" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-11ac4a56 elementor-widget elementor-widget-heading" data-id="11ac4a56" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">O que faz um ESPECIALISTA DIGITAL?</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-3438f81f elementor-widget elementor-widget-heading" data-id="3438f81f" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">O <strong>ESPECIALISTA DIGITAL</strong> é responsável por prestar serviços online simples, como avaliar anúncios, sites, posts em redes sociais, conferir endereços e horários de estabelecimentos comerciais, além de prestar suporte para grandes empresas como <strong>Google, Facebook, Apple, Amazon</strong>, entre outras empresas americanas.</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-1462bd03 elementor-widget elementor-widget-heading" data-id="1462bd03" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">São funções que qualquer pessoa pode desempenhar, bastando apenas saber como e onde se candidatar para estas vagas, já que são pouquíssimo divulgadas.</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-27adcd74 elementor-align-center elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="27adcd74" data-element_type="widget" data-widget_type="button.default">
+                        <div class="elementor-widget-container">
+                           <div class="elementor-button-wrapper">
+                              <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-bob" href="https://pay.confiavelpagamento.com/checkout/9a117027-e2fa-44e6-83c9-0c7f738d8d07">
+                              <span class="elementor-button-content-wrapper">
+                              <span class="elementor-button-text">QUERO COMEÇAR!</span>
+                              </span>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5cf31465" data-id="5cf31465" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-ec42bf4 elementor-widget elementor-widget-image" data-id="ec42bf4" data-element_type="widget" data-widget_type="image.default">
+                        <div class="elementor-widget-container">
+                           <figure class="wp-caption">
+                              <img decoding="async" width="717" height="432" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20717%20432'%3E%3C/svg%3E" class="attachment-large size-large wp-image-14" alt="" data-lazy-srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/O-QUE-E.webp 717w, https://victordemetrius.com.br/wp-content/uploads/2023/04/O-QUE-E-300x181.webp 300w" data-lazy-sizes="(max-width: 717px) 100vw, 717px" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2023/04/O-QUE-E.webp" />
+                              <noscript><img decoding="async" width="717" height="432" src="wp-content/uploads/2023/04/O-QUE-E.webp" class="attachment-large size-large wp-image-14" alt="" srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/O-QUE-E.webp 717w, https://victordemetrius.com.br/wp-content/uploads/2023/04/O-QUE-E-300x181.webp 300w" sizes="(max-width: 717px) 100vw, 717px" /></noscript>
+                              <figcaption class="widget-image-caption wp-caption-text"></figcaption>
+                           </figure>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-367b126b elementor-hidden-tablet elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="367b126b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-121ab53c" data-id="121ab53c" data-element_type="column">
+                  <div class="elementor-widget-wrap">
+                  </div>
+               </div>
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-440d7b85" data-id="440d7b85" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-4f67a9af elementor-widget elementor-widget-heading" data-id="4f67a9af" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Quais são os pré-requisitos?</h2>
+                        </div>
+                     </div>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-451911a2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="451911a2" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-3feed745" data-id="3feed745" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-3432e344 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="3432e344" data-element_type="widget" data-widget_type="icon-list.default">
+                                    <div class="elementor-widget-container">
+                                       <ul class="elementor-icon-list-items">
+                                          <li class="elementor-icon-list-item">
+                                             <span class="elementor-icon-list-icon">
+                                             <i aria-hidden="true" class="fas fa-check"></i>						</span>
+                                             <span class="elementor-icon-list-text">Não importa sua escolaridade</span>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-212794ec elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="212794ec" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-4878bdbc" data-id="4878bdbc" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-22abb9d4 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="22abb9d4" data-element_type="widget" data-widget_type="icon-list.default">
+                                    <div class="elementor-widget-container">
+                                       <ul class="elementor-icon-list-items">
+                                          <li class="elementor-icon-list-item">
+                                             <span class="elementor-icon-list-icon">
+                                             <i aria-hidden="true" class="fas fa-check"></i>						</span>
+                                             <span class="elementor-icon-list-text">Não é necessário saber inglês</span>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-38fc79f0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="38fc79f0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-5636745e" data-id="5636745e" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-3f0b992b elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="3f0b992b" data-element_type="widget" data-widget_type="icon-list.default">
+                                    <div class="elementor-widget-container">
+                                       <ul class="elementor-icon-list-items">
+                                          <li class="elementor-icon-list-item">
+                                             <span class="elementor-icon-list-icon">
+                                             <i aria-hidden="true" class="fas fa-check"></i>						</span>
+                                             <span class="elementor-icon-list-text">Não é necessário ter experiência</span>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-37fdb716 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="37fdb716" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-4129d8b9" data-id="4129d8b9" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-49522f22 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="49522f22" data-element_type="widget" data-widget_type="icon-list.default">
+                                    <div class="elementor-widget-container">
+                                       <ul class="elementor-icon-list-items">
+                                          <li class="elementor-icon-list-item">
+                                             <span class="elementor-icon-list-icon">
+                                             <i aria-hidden="true" class="fas fa-check"></i>						</span>
+                                             <span class="elementor-icon-list-text">Você precisa ter 18 anos ou mais</span>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-33504f83 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="33504f83" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-4d704b36" data-id="4d704b36" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-72223fba elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="72223fba" data-element_type="widget" data-widget_type="icon-list.default">
+                                    <div class="elementor-widget-container">
+                                       <ul class="elementor-icon-list-items">
+                                          <li class="elementor-icon-list-item">
+                                             <span class="elementor-icon-list-icon">
+                                             <i aria-hidden="true" class="fas fa-check"></i>						</span>
+                                             <span class="elementor-icon-list-text">Um celular (Android ou iPhone) ou computador com acesso à internet</span>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-36918c66 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="36918c66" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6e2c5b51" data-id="6e2c5b51" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-d973d84 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d973d84" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-587ed50f" data-id="587ed50f" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-1aa4a873 elementor-widget elementor-widget-heading" data-id="1aa4a873" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default">O que você vai aprender?</h2>
+                                    </div>
+                                 </div>
+                                 <div class="elementor-element elementor-element-35b924fb elementor-widget elementor-widget-heading" data-id="35b924fb" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default">Veja abaixo o que você vai aprender dentro deste curso</h2>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section class="elementor-section elementor-inner-section elementor-element elementor-element-76c78b47 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="76c78b47" data-element_type="section">
+                        <div class="elementor-container elementor-column-gap-default">
+                           <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-399b50dc" data-id="399b50dc" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-5a085b63 elementor-widget elementor-widget-image" data-id="5a085b63" data-element_type="widget" data-widget_type="image.default">
+                                    <div class="elementor-widget-container">
+                                       <img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" class="attachment-large size-large wp-image-15" alt="" data-lazy-srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/trabalhar-online.webp 512w, https://victordemetrius.com.br/wp-content/uploads/2023/04/trabalhar-online-300x300.webp 300w, https://victordemetrius.com.br/wp-content/uploads/2023/04/trabalhar-online-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2023/04/trabalhar-online.webp" />
+                                       <noscript><img decoding="async" width="512" height="512" src="wp-content/uploads/2023/04/trabalhar-online.webp" class="attachment-large size-large wp-image-15" alt="" srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/trabalhar-online.webp 512w, https://victordemetrius.com.br/wp-content/uploads/2023/04/trabalhar-online-300x300.webp 300w, https://victordemetrius.com.br/wp-content/uploads/2023/04/trabalhar-online-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript>
+                                    </div>
+                                 </div>
+                                 <div class="elementor-element elementor-element-1f14813f elementor-widget elementor-widget-heading" data-id="1f14813f" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default">Onde encontrar as vagas exclusivas que te permitirão trabalhar online para grandes empresas americanas</h2>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-23b037f5" data-id="23b037f5" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-3eab834 elementor-widget elementor-widget-image" data-id="3eab834" data-element_type="widget" data-widget_type="image.default">
+                                    <div class="elementor-widget-container">
+                                       <img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" class="attachment-large size-large wp-image-16" alt="" data-lazy-srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/falar-ingles.webp 512w, https://victordemetrius.com.br/wp-content/uploads/2023/04/falar-ingles-300x300.webp 300w, https://victordemetrius.com.br/wp-content/uploads/2023/04/falar-ingles-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2023/04/falar-ingles.webp" />
+                                       <noscript><img loading="lazy" decoding="async" width="512" height="512" src="wp-content/uploads/2023/04/falar-ingles.webp" class="attachment-large size-large wp-image-16" alt="" srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/falar-ingles.webp 512w, https://victordemetrius.com.br/wp-content/uploads/2023/04/falar-ingles-300x300.webp 300w, https://victordemetrius.com.br/wp-content/uploads/2023/04/falar-ingles-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript>
+                                    </div>
+                                 </div>
+                                 <div class="elementor-element elementor-element-4f5e5e78 elementor-widget elementor-widget-heading" data-id="4f5e5e78" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default">Como utilizar ferramentas que te possibilitam trabalhar mesmo sem saber inglês</h2>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-2e3d1c25" data-id="2e3d1c25" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-276ff125 elementor-widget elementor-widget-image" data-id="276ff125" data-element_type="widget" data-widget_type="image.default">
+                                    <div class="elementor-widget-container">
+                                       <img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" class="attachment-large size-large wp-image-17" alt="" data-lazy-srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/dolar.webp 512w, https://victordemetrius.com.br/wp-content/uploads/2023/04/dolar-300x300.webp 300w, https://victordemetrius.com.br/wp-content/uploads/2023/04/dolar-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2023/04/dolar.webp" />
+                                       <noscript><img loading="lazy" decoding="async" width="512" height="512" src="wp-content/uploads/2023/04/dolar.webp" class="attachment-large size-large wp-image-17" alt="" srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/dolar.webp 512w, https://victordemetrius.com.br/wp-content/uploads/2023/04/dolar-300x300.webp 300w, https://victordemetrius.com.br/wp-content/uploads/2023/04/dolar-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript>
+                                    </div>
+                                 </div>
+                                 <div class="elementor-element elementor-element-2d9f7609 elementor-widget elementor-widget-heading" data-id="2d9f7609" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default">Estratégias para começar de forma rápida e começar a ganhar em dólar</h2>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-23c9d547" data-id="23c9d547" data-element_type="column">
+                              <div class="elementor-widget-wrap elementor-element-populated">
+                                 <div class="elementor-element elementor-element-5bbd1c02 elementor-widget elementor-widget-image" data-id="5bbd1c02" data-element_type="widget" data-widget_type="image.default">
+                                    <div class="elementor-widget-container">
+                                       <img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" class="attachment-large size-large wp-image-18" alt="" data-lazy-srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/curriculo.webp 512w, https://victordemetrius.com.br/wp-content/uploads/2023/04/curriculo-300x300.webp 300w, https://victordemetrius.com.br/wp-content/uploads/2023/04/curriculo-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="https://victordemetrius.com.br/wp-content/uploads/2023/04/curriculo.webp" />
+                                       <noscript><img loading="lazy" decoding="async" width="512" height="512" src="wp-content/uploads/2023/04/curriculo.webp" class="attachment-large size-large wp-image-18" alt="" srcset="https://victordemetrius.com.br/wp-content/uploads/2023/04/curriculo.webp 512w, https://victordemetrius.com.br/wp-content/uploads/2023/04/curriculo-300x300.webp 300w, https://victordemetrius.com.br/wp-content/uploads/2023/04/curriculo-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript>
+                                    </div>
+                                 </div>
+                                 <div class="elementor-element elementor-element-6f952f18 elementor-widget elementor-widget-heading" data-id="6f952f18" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                       <h2 class="elementor-heading-title elementor-size-default">Modelo validado de currículo em moldes americanos para você conquistar sua vaga</h2>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-2af7b82b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2af7b82b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3399ec85" data-id="3399ec85" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-5409db4d elementor-widget elementor-widget-heading" data-id="5409db4d" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Vai dar certo pra mim?</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-7f88f501 elementor-widget elementor-widget-heading" data-id="7f88f501" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Você já tentou outras formas de trabalhar pela internet, mas não teve sucesso?</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-5e17d876 elementor-widget elementor-widget-heading" data-id="5e17d876" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">O<b><span style="color: #3FD8CC;"> ESPECIALISTA DIGITAL PRO</span></b> é diferente de tudo que você já viu! Através deste método, você vai realmente aprender a começar a ganhar dinheiro trabalhando pela internet, de forma rápida e sem enrolação! </h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-4667e9df elementor-widget elementor-widget-heading" data-id="4667e9df" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Método 100% prático. Todo o treinamento é feito passo a passo. Você será guiado em todas as etapas, desde o primeiro momento. </h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-64097353 elementor-widget elementor-widget-heading" data-id="64097353" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Estude no tempo que você tiver disponibilidade. Sua rotina é corrida, com horários apertados? Não se preocupe! O treinamento também é para você! Assista as aulas de onde estiver, a qualquer hora! <b><u>Você está pronto para começar?</b></u></h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-311a086f elementor-align-center elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="311a086f" data-element_type="widget" data-widget_type="button.default">
+                        <div class="elementor-widget-container">
+                           <div class="elementor-button-wrapper">
+                              <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-bob" href="https://pay.confiavelpagamento.com/checkout/9a117027-e2fa-44e6-83c9-0c7f738d8d07">
+                              <span class="elementor-button-content-wrapper">
+                              <span class="elementor-button-text">ESTOU PRONTO</span>
+                              </span>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-6b5bea21 elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6b5bea21" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-10da18d9" data-id="10da18d9" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-33c78832 elementor-widget elementor-widget-heading" data-id="33c78832" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">SOBRE MIM</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-101335f2 elementor-widget elementor-widget-heading" data-id="101335f2" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Victor Demétrius</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-1434cc48 elementor-widget elementor-widget-heading" data-id="1434cc48" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Prazer! Se você ainda não me conhece, me chamo Victor Demétrius. Sou formado em Engenharia de Produção pela UFMG. Assim que me formei, fui aprovado em uma vaga de trabalho CLT na qual eu recebia um bom salário e uma série benefícios. Todavia, <b>nunca me senti 100% satisfeito por ter que acordar cedo demais, trabalhar longe da minha família, não tinha tempo para nada e sentia que não tinha LIBERDADE. Neste momento, não hesitei e então pedi demissão.</b>​</h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-6b27210b elementor-widget elementor-widget-heading" data-id="6b27210b" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Minha jornada começou após um intercâmbio nos Estados Unidos, onde descobri que é possível trabalhar online, recebendo em dólar e com total liberdade. <b>Foi ai que passei a me dedicar 100% à minha carreira de Especialista Digital.​</b></h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-4e83ffe4 elementor-widget elementor-widget-heading" data-id="4e83ffe4" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Trabalho nessa área desde 2017 e te afirmo que esta profissão me permite não só viajar sempre que desejo, como também me permitiu realizar meu sonho de infância: <b>comprar uma BMW aos 26 anos de idade e, atualmente, ter duas dessas na garagem!</b></h2>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-5601d2bd elementor-widget elementor-widget-heading" data-id="5601d2bd" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Depois de tudo isso, decidi criar este treinamento para ajudar pessoas que têm o sonho de alcançar as 3 liberdades incondicionais: liberdade financeira, liberdade geográfica e liberdade de tempo. Eu já estive onde você está e já percorri o caminho do sucesso. <b>Agora você tem a oportunidade de chegar bem mais rápido ao seu objetivo com o conteúdo que está pronto para você!</b></h2>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-1405f5c5" data-id="1405f5c5" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                     <div class="elementor-element elementor-element-6823410 elementor-widget elementor-widget-image" data-id="6823410" data-element_type="widget" data-widget_type="image.default">
+                        <div class="elementor-widget-container">
+                           <img decoding="async" width="800" height="836" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20836'%3E%3C/svg%3E" class="attachment-large size-large wp-image-1916" alt="" data-lazy-srcset="https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-980x1024.webp 980w, https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-287x300.webp 287w, https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-768x803.webp 768w, https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-1470x1536.webp 1470w, https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-1960x2048.webp 1960w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="wp-content/uploads/2024/10/Especialista-1-980x1024.webp" />
+                           <noscript><img loading="lazy" decoding="async" width="800" height="836" src="wp-content/uploads/2024/10/Especialista-1-980x1024.webp" class="attachment-large size-large wp-image-1916" alt="" srcset="https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-980x1024.webp 980w, https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-287x300.webp 287w, https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-768x803.webp 768w, https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-1470x1536.webp 1470w, https://victordemetrius.com.br/wp-content/uploads/2024/10/Especialista-1-1960x2048.webp 1960w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                        </div>
+                     </div>
+                     <div class="elementor-element elementor-element-3bbc42e8 elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="3bbc42e8" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                           <h2 class="elementor-heading-title elementor-size-default">Um sonho que foi realizado muito além do que eu imaginava</h2>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+      </div>
+      <link rel='stylesheet' id='e-animations-css' href='wp-content/plugins/elementor/assets/lib/animations/animations.minf3b2.css?ver=3.18.3' media='all' />
+      <script id="rocket-browser-checker-js-after">
+         "use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+      </script>
+      <script id="rocket-preload-links-js-extra">
+         var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?(.*)wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/victordemetrius.com.br","onHoverDelay":"100","rateThrottle":"3"};
+      </script>
+      <script id="rocket-preload-links-js-after">
+         (function() {
+         "use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("index.html")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("index.html")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+         }());
+      </script>
+      <script src="wp-content/themes/hello-elementor/assets/js/hello-frontend.min41fe.js?ver=3.0.1" id="hello-theme-frontend-js" defer></script>
+      <script src="wp-content/plugins/wp-rocket/assets/js/heartbeatb0c0.js?ver=3.13" id="heartbeat-js" defer></script>
+      <script src="wp-content/plugins/pro-elements/assets/js/webpack-pro.runtime.min110d.js?ver=3.18.1" id="elementor-pro-webpack-runtime-js" defer></script>
+      <script src="wp-content/plugins/elementor/assets/js/webpack.runtime.minf3b2.js?ver=3.18.3" id="elementor-webpack-runtime-js" defer></script>
+      <script src="wp-content/plugins/elementor/assets/js/frontend-modules.minf3b2.js?ver=3.18.3" id="elementor-frontend-modules-js" defer></script>
+      <script src="wp-includes/js/dist/hooks.min4fdd.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+      <script src="wp-includes/js/dist/i18n.minc33c.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+      <script id="wp-i18n-js-after">
+         wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+      </script>
+      <script id="elementor-pro-frontend-js-before">
+         var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/victordemetrius.com.br\/wp-admin\/admin-ajax.php","nonce":"49f5a59bf7","urls":{"assets":"https:\/\/victordemetrius.com.br\/wp-content\/plugins\/pro-elements\/assets\/","rest":"https:\/\/victordemetrius.com.br\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"pt_BR","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/victordemetrius.com.br\/wp-content\/plugins\/pro-elements\/modules\/lottie\/assets\/animations\/default.json"}};
+      </script>
+      <script src="wp-content/plugins/pro-elements/assets/js/frontend.min110d.js?ver=3.18.1" id="elementor-pro-frontend-js" defer></script>
+      <script src="wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min05da.js?ver=4.0.2" id="elementor-waypoints-js" defer></script>
+      <script src="wp-includes/js/jquery/ui/core.minb37e.js?ver=1.13.3" id="jquery-ui-core-js" defer></script>
+      <script id="elementor-frontend-js-before">
+         var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnTwitter":"Compartilhar no Twitter","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar","a11yCarouselWrapperAriaLabel":"Carrossel | Rolagem horizontal: Setas para esquerda e direita","a11yCarouselPrevSlideMessage":"Slide anterior","a11yCarouselNextSlideMessage":"Pr\u00f3ximo slide","a11yCarouselFirstSlideMessage":"Este \u00e9 o primeiro slide","a11yCarouselLastSlideMessage":"Este \u00e9 o \u00faltimo slide","a11yCarouselPaginationBulletMessage":"Ir para o slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Retrato em dispositivos m\u00f3veis","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Paisagem em dispositivos m\u00f3veis","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Retrato em tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Paisagem em tablet","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Notebook","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Tela ampla (widescreen)","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.18.3","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"additional_custom_breakpoints":true,"container":true,"e_swiper_latest":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"block_editor_assets_optimize":true,"landing-pages":true,"e_image_loading_optimization":true,"e_global_styleguide":true,"page-transitions":true,"notes":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/victordemetrius.com.br\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_footer_logo_type":"logo"},"post":{"id":10,"title":"Especialista%20Digital%20PRO%20-%20Victor%20Demetrius","excerpt":"","featuredImage":"https:\/\/victordemetrius.com.br\/wp-content\/uploads\/2023\/12\/5-1-1024x1024.png"}};
+      </script>
+      <script src="wp-content/plugins/elementor/assets/js/frontend.minf3b2.js?ver=3.18.3" id="elementor-frontend-js" defer></script>
+      <script src="wp-content/plugins/pro-elements/assets/js/elements-handlers.min110d.js?ver=3.18.1" id="pro-elements-handlers-js" defer></script>
+      <script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+         if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+         images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+         if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)
+      </script><script data-no-minify="1" async src="wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>	<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+   </body>
+</html>
